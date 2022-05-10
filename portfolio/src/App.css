@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{font-family: 'Montserrat', sans-serif;}
+
+  p{
+    font-size: 18px;
+  }
+
+  h2{
+    margin-top:0px;
+    margin-bottom:0px;
+    font-size: 35px;
+  }
+
+  .App {
+    text-align: center;
+  }
+
+  #background{
+    background: linear-gradient(339deg, rgba(37,38,39,1) 0%, rgba(14,28,51,1) 100%);
+  }
+
+  #aboutSection{
+    padding-top:50px;
+    padding-bottom:50px;
+  }
+
+  #projectsSection{
+    padding-top:50px;
+    padding-bottom:50px;
+  }
+  
+  #about {
+    color:whitesmoke;
+    display: flex;
+    flex-direction: row;
+  }
+
+  #projects{
+    color: whitesmoke;
+  }
+  
+  #greeting{
+    font-size: 50px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
+  
+  .title{
+    margin-top: 5px;
+    margin-bottom: 15px;
+    font-size: 20px;
+  }
+  
+  .contentWrapper{
+    margin: auto;
+    width: 100%;
+    max-width: 1200px;
+  }
+  #leftAbout{
+    width: 80%;
+    margin-right: 1%;
+  }
+  #rightAbout{
+    width: 20%;
+  }
+  #portrait{
+    width: 100%;
+    border-radius: 50%;
+  }
+
+  .containerButton1{
+    padding-top: 20px;
+    text-align:center;
+  }
+
+  .button {
+    border: 2px solid;
+    border-color: #2381e6;
+    background-color: transparent;
+    border-radius:4px;
+    color: #2381e6;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition: 0.15s;
+    transform:scale(1.0);
+  }
+
+  .button:hover {
+    background-color: #2381e6;
+    color: white;
+    transform:scale(1.03);
+  }
