@@ -111,7 +111,7 @@ function Introduction() {
           spacing = {5} 
           alignItems="flex-start"
         >
-          <Text fontSize = '5xl' fontWeight="600">Hello There!</Text>
+          <Text fontSize = '5xl' fontWeight="600" className = "reveal-text">Hello There!</Text>
           <Text fontSize = 'xl'>I am Linus Karlsson, a software developer.</Text> 
           <Text>Welcome to my page! I love to work with creative solutions and to fully immerse myself in an exciting project. I am an ambitious and independent worker, but work at my absolut best ability in a motivated team. I know how to communicate and I have a positive attitude. Right now I am doing my master studies in engineering for media technology at Linköping University.</Text>
         </VStack>

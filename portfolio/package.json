@@ -12,7 +12,9 @@
     "@emotion/react": "11",
     "@emotion/styled": "11",
     "framer-motion": "6",
+    "postcss": "^8.4.14",
     "react": "^18.0.0",
+    "react-animated-text": "^0.1.4",
     "react-dom": "^18.0.0"
   },
   "devDependencies": {
