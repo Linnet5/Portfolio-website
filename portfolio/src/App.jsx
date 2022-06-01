@@ -69,7 +69,7 @@ trainer.set('Description', "We created a mobile game called Virtual Trainer whic
 trainer.set('Type', "Unity, C#, Aseprite");
 trainer.set('Link', "https://github.com/Linnet5/Kandidatprojekt");
 
-const projectsArr = [seabed, cloth, raytrace, clicker, wire, trainer];
+const projectsArr = [seabed, cloth, raytrace, wire, clicker, trainer];
 
 function App() {
   return (
@@ -220,7 +220,7 @@ function PortfolioPost(props) {
         id = "card"
         onClick = {onCardClick}
         _hover = {{transition: "0.2s", cursor: "pointer"}}
-        h = {'670px'}
+        h = {'575px'}
         maxW={'360px'}
         w={'full'}
         bg={useColorModeValue('white', 'gray.900')}
