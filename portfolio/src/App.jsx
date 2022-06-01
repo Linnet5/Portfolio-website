@@ -108,21 +108,20 @@ function Introduction() {
           w = "75%" 
           h="full" 
           p={10} 
-          spacing = {10} 
+          spacing = {5} 
           alignItems="flex-start"
         >
-          <Text fontSize = '5xl'>Hello There!</Text>
-          <Text fontSize = 'xl'>I am Linus Karlsson, a software developer.</Text>
+          <Text fontSize = '5xl' fontWeight="600">Hello There!</Text>
+          <Text fontSize = 'xl'>I am Linus Karlsson, a software developer.</Text> 
           <Text>Welcome to my page! I love to work with creative solutions and to fully immerse myself in an exciting project. I am an ambitious and independent worker, but work at my absolut best ability in a motivated team. I know how to communicate and I have a positive attitude. Right now I am doing my master studies in engineering for media technology at Linköping University.</Text>
         </VStack>
         <VStack id = "profilePicture"
           w="25%" 
           h="full" 
           p={10} 
-          spacing = {10} 
           alignItems="flex-start"
         >
-          <Box paddingTop={14}/>
+          <Box paddingTop={0}/>
           <Image borderRadius = 'full' src="/images/portrait.jpg" alt='Dan Abramov' />
         </VStack>
       </Flex>
