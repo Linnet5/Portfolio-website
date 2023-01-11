@@ -33,7 +33,7 @@ import cv from './cv.pdf';
 import './App.css';
 import projectsData from './projectsData.json';
 import currentProjectsData from './currentProjectsData.json';
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+// import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 
 function App() {
@@ -45,7 +45,7 @@ function App() {
         </Container>
       </Flex>
       <Flex bg="whitesmoke">
-        <Container maxW="container.xl" p={0} paddingTop={10} color="gray">
+        <Container maxW="container.xl" p={0} paddingTop={9} color="gray">
           <FeaturedProjects data={currentProjectsData} header="Featured Project" />
           <Projects data={projectsData} header="Other Projects" />
         </Container>
