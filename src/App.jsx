@@ -33,7 +33,6 @@ import cv from './cv.pdf';
 import './App.css';
 import projectsData from './projectsData.json';
 import currentProjectsData from './currentProjectsData.json';
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 
 function App() {
@@ -122,7 +121,7 @@ function FeaturedProjects(props) {
           <Center>
 
             <Box>
-              <Carousel autoPlay={true} infiniteLoop={true} stopOnHover={true} interval={6000} emulateTouch={true}>
+              <Carousel autoPlay={true} infiniteLoop={true} stopOnHover={true} interval={6000} emulateTouch={true} style>
                 <Box backgroundImage={props.Image} h={["200px", "300px", "500px", "700px"]} backgroundSize="cover" backgroundPosition="center" onClick={() => window.open(props.Link)} _hover={{ transition: "0.2s", cursor: "pointer" }} />
                 <Box backgroundImage={props.Image2} h={["200px", "300px", "500px", "700px"]} backgroundSize="cover" backgroundPosition="center" onClick={() => window.open(props.Link)} _hover={{ transition: "0.2s", cursor: "pointer" }} />
                 <Box backgroundImage={props.Image3} h={["200px", "300px", "500px", "700px"]} backgroundSize="cover" backgroundPosition="center" onClick={() => window.open(props.Link)} _hover={{ transition: "0.2s", cursor: "pointer" }} />
@@ -249,3 +248,5 @@ function PortfolioPost(props) {
 }
 
 export default App
+
+StyleSheet.S
