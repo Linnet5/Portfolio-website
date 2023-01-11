@@ -8,12 +8,15 @@ import {
   Button,
   useDisclosure,
   Flex,
+  Spacer,
+  Grid,
   Text,
   Container,
   Image,
   Box,
   Heading,
   Stack,
+  StackDivider,
   useColorModeValue,
   Center,
   Link,
@@ -88,7 +91,6 @@ function Introduction() {
       </Flex>
       <Center>
         <CVModalSwe />
-        <CVModalEng />
       </Center>
       <Center>
         <Link
@@ -97,12 +99,6 @@ function Introduction() {
           fontSize="xs"
           paddingTop={1}
           px={2}
-        > (Direct Link)</Link>
-        <Link
-          href="\src\cv.pdf"
-          color="gray.400"
-          fontSize="xs"
-          paddingTop={1}
         > (Direct Link)</Link>
       </Center>
     </Box>
@@ -207,21 +203,25 @@ function PortfolioPost(props) {
             fit="cover"
           />
         </Box>
-        <Stack>
-          <Heading className="projectName"
-            color={useColorModeValue('gray.700', 'white')}
-            fontSize={'2xl'}
-            fontFamily={'body'}
-            paddingTop={10}
-            _groupHover={{ textDecoration: "underline" }}>
-            {props.name}
-          </Heading>
-          <Text color={'gray.500'}>
-            {props.description}
-          </Text>
-          <Text color={'gray.700'} fontWeight="bold">
-            {props.type}
-          </Text>
+        <Stack divider={<StackDivider borderColor='gray.200' />}>
+          <Box>
+            <Heading className="projectName"
+              color={useColorModeValue('gray.700', 'white')}
+              fontSize={'2xl'}
+              fontFamily={'body'}
+              paddingTop={10}
+              _groupHover={{ textDecoration: "underline" }}>
+              {props.name}
+            </Heading>
+            <Text color={'gray.500'}>
+              {props.description}
+            </Text>
+          </Box>
+          <Box>
+            <Text color={'gray.700'} fontWeight="bold">
+              {props.type}
+            </Text>
+          </Box>
         </Stack>
       </Box>
     </Center>
