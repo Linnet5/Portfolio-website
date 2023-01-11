@@ -11,6 +11,7 @@ import {
   Spacer,
   Grid,
   Text,
+  Fade,
   Container,
   Image,
   Box,
@@ -32,6 +33,8 @@ import cv from './cv.pdf';
 import './App.css';
 import projectsData from './projectsData.json';
 import currentProjectsData from './currentProjectsData.json';
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
 
 function App() {
   return (
@@ -42,19 +45,21 @@ function App() {
         </Container>
       </Flex>
       <Flex bg="whitesmoke">
-        <Container maxW="container.xl" p={0} color="gray">
-          {/* <Projects data={currentProjectsData} header="Current Project" /> */}
-          <Projects data={projectsData} header="Projects" />
+        <Container maxW="container.xl" p={0} paddingTop={10} color="gray">
+          <FeaturedProjects data={currentProjectsData} header="Featured Project" />
+          <Projects data={projectsData} header="Other Projects" />
         </Container>
       </Flex>
       <Box paddingTop={10} bg="whitesmoke">
-        <Flex bg="#1d2024">
+        <Flex bg="#1d2024" h={[0, 0, 0, "100%"]}>
           <Container maxW="container.xl" color="whitesmoke">
-            <Box paddingLeft={[0, 10]} paddingRight={[0, 10]}>
+            <Box paddingLeft={[0, 0, 10]} paddingRight={[0, 0, 10]}>
               <Center>
-                <Link href="https://www.linkedin.com/in/linus-karlsson-503b881b7/" m={10}>LinkedIn</Link>
-                <Link href="https://github.com/Linnet5" m={10}>GitHub</Link>
-                <Link href="mailto:linus.karlsson.96@hotmail.com" m={10}>Contact</Link>
+                <Link href="https://www.linkedin.com/in/linus-karlsson-503b881b7/" m={[0, 0, 10]}>LinkedIn</Link>
+                <Link href="https://github.com/Linnet5" m={[0, 0, 10]}>GitHub</Link>
+                <Link href="https://itch.io/profile/linnet5" m={[0, 0, 10]}>Itch.io</Link>
+                <Link href="https://open.spotify.com/artist/2hFfCBnH3r2tF6Ftj5L6dy?si=etOJAj5zTFWV7ymPd2MzvA" m={[0, 0, 10]}>My music</Link>
+                <Link href="mailto:linus.karlsson.96@hotmail.com" m={[0, 0, 10]}>Contact</Link>
               </Center>
             </Box>
           </Container>
@@ -72,12 +77,12 @@ function Introduction() {
           w="75%"
           h="full"
           p={10}
-          spacing={5}
+          spacing={3}
           alignItems="flex-start"
         >
-          <Text fontSize='5xl' fontWeight="600" className="reveal-text">Hello There!</Text>
-          <Text fontSize='xl'>I am Linus Karlsson, a software developer.</Text>
-          <Text>Welcome to my page! I love to work with creative solutions and to fully immerse myself in an exciting project. I am an ambitious and independent worker, but work at my absolut best ability in a motivated team. I know how to communicate and I have a positive attitude. Right now I am doing my master studies in engineering for media technology at Linköping University.</Text>
+          <Text fontSize={['2xl', '5xl', '5xl']} fontWeight="600" className="reveal-text">Hello There!</Text>
+          <Text fontSize='xl'>I am Linus Karlsson, an M.Sc Student in Media Technology and Engineering.</Text>
+          <Text>Welcome to my page! I love to work with creative solutions and to fully immerse myself in an exciting project. I am an ambitious and independent worker, but work at my absolute best ability in an engaged team. I know how to communicate and I have a positive attitude. Right now I am doing my master studies in media technology and engineering at Linköping University.</Text>
         </VStack>
         <VStack id="profilePicture"
           w="25%"
@@ -86,7 +91,7 @@ function Introduction() {
           alignItems="flex-start"
         >
           <Box paddingTop={0} />
-          <Image borderRadius='full' src="/images/portrait.jpg" alt='Dan Abramov' />
+          <Image borderRadius='full' src="/images/portrait.jpg" alt='Linus port' />
         </VStack>
       </Flex>
       <Center>
@@ -105,10 +110,42 @@ function Introduction() {
   );
 }
 
+function FeaturedProjects(props) {
+  var data = props.data;
+  return (
+    <Box>
+      <Center>
+        <Text fontSize='4xl'>{props.header}</Text>
+      </Center>
+      {data.projects.map((props) => {
+        return (
+          <Center>
+
+            <Box>
+              <Carousel autoPlay={true} infiniteLoop={true} stopOnHover={true} interval={6000} emulateTouch={true}>
+                <Box backgroundImage={props.Image} h={["200px", "300px", "500px", "700px"]} backgroundSize="cover" backgroundPosition="center" onClick={() => window.open(props.Link)} _hover={{ transition: "0.2s", cursor: "pointer" }} />
+                <Box backgroundImage={props.Image2} h={["200px", "300px", "500px", "700px"]} backgroundSize="cover" backgroundPosition="center" onClick={() => window.open(props.Link)} _hover={{ transition: "0.2s", cursor: "pointer" }} />
+                <Box backgroundImage={props.Image3} h={["200px", "300px", "500px", "700px"]} backgroundSize="cover" backgroundPosition="center" onClick={() => window.open(props.Link)} _hover={{ transition: "0.2s", cursor: "pointer" }} />
+
+              </Carousel >
+              <Box>
+                <Stack padding={[5, 0]} marginTop={-6} justifyContent="space-between" alignItems="left" divider={<StackDivider borderColor='gray.300' />}>
+                  <Text h="80%" textAlign="left" textColor="black" overflow="hidden">{props.Description}</Text>
+                  <Text fontWeight="bold" textAlign="left" textColor="black">{props.Type}</Text>
+                </Stack>
+              </Box>
+            </Box>
+          </Center>
+        )
+      })}
+    </Box >
+  );
+}
+
 function Projects(props) {
   var data = props.data;
   return (
-    <Box paddingLeft={[0, 10]} paddingRight={[0, 10]}>
+    <Box paddingLeft={[0, 0, 10]} paddingRight={[0, 0, 10]}>
       <Center>
         <Flex p={[2, 10]}>
           <Text fontSize='4xl'>{props.header}</Text>
@@ -142,7 +179,7 @@ function CVModalSwe() {
   const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <>
-      <Button onClick={onOpen} className="button" bg="transparent" _hover={{ bg: '#2381e6' }} mx={2}>View CV (Swe)</Button>
+      <Button onClick={onOpen} className="button" bg="transparent" _hover={{ bg: '#2381e6' }} mx={2}>View Resume</Button>
       <Modal isOpen={isOpen} onClose={onClose} size='3xl'>
         <ModalOverlay />
         <ModalContent h="288mm" w="100%">
@@ -155,24 +192,6 @@ function CVModalSwe() {
   );
 }
 
-// function CVModalEng() {
-//   const { isOpen, onOpen, onClose } = useDisclosure()
-//   return (
-//     <>
-//       <Button onClick={onOpen} className="button" bg="transparent" _hover={{ bg: '#2381e6' }}>View CV (Eng)</Button>
-//       <Modal isOpen={isOpen} onClose={onClose} size='3xl'>
-//         <ModalOverlay />
-//         <ModalContent h="288mm" w="100%">
-//           <ModalBody >
-//             <iframe src={`${cv}#view=fitW`} title="cv" height="100%" width="100%" />
-//           </ModalBody>
-//         </ModalContent>
-//       </Modal>
-//     </>
-//   );
-// }
-
-
 function PortfolioPost(props) {
   const onCardClick = function () {
     window.open(props.link);
@@ -183,7 +202,7 @@ function PortfolioPost(props) {
         id="card"
         onClick={onCardClick}
         _hover={{ transition: "0.2s", cursor: "pointer" }}
-        h={'575px'}
+        h={'fit-content'}
         maxW={'360px'}
         w={'full'}
         bg={useColorModeValue('white', 'gray.900')}
@@ -199,12 +218,11 @@ function PortfolioPost(props) {
           mb={6}>
           <Image className="projectImage"
             src={props.imageSrc}
-            fit="cover"
+            fit="center"
           />
         </Box>
         <Stack
           divider={<StackDivider borderColor='gray.300' />}
-          justifyContent="space-between"
         >
           <Box>
             <Heading className="projectName"
