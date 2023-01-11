@@ -114,7 +114,7 @@ function Projects(props) {
           <Text fontSize='4xl'>{props.header}</Text>
         </Flex>
       </Center>
-      <Wrap paddingLeft={[0, 10]} paddingRight={[0, 10]} paddingBottom={10} justify="center">
+      <Wrap paddingLeft={[0, 10]} paddingRight={[0, 10]} paddingBottom={20} justify="center">
         {data.projects.map(PostComponent)}
       </Wrap>
     </Box>
@@ -155,22 +155,22 @@ function CVModalSwe() {
   );
 }
 
-function CVModalEng() {
-  const { isOpen, onOpen, onClose } = useDisclosure()
-  return (
-    <>
-      <Button onClick={onOpen} className="button" bg="transparent" _hover={{ bg: '#2381e6' }}>View CV (Eng)</Button>
-      <Modal isOpen={isOpen} onClose={onClose} size='3xl'>
-        <ModalOverlay />
-        <ModalContent h="288mm" w="100%">
-          <ModalBody >
-            <iframe src={`${cv}#view=fitW`} title="cv" height="100%" width="100%" />
-          </ModalBody>
-        </ModalContent>
-      </Modal>
-    </>
-  );
-}
+// function CVModalEng() {
+//   const { isOpen, onOpen, onClose } = useDisclosure()
+//   return (
+//     <>
+//       <Button onClick={onOpen} className="button" bg="transparent" _hover={{ bg: '#2381e6' }}>View CV (Eng)</Button>
+//       <Modal isOpen={isOpen} onClose={onClose} size='3xl'>
+//         <ModalOverlay />
+//         <ModalContent h="288mm" w="100%">
+//           <ModalBody >
+//             <iframe src={`${cv}#view=fitW`} title="cv" height="100%" width="100%" />
+//           </ModalBody>
+//         </ModalContent>
+//       </Modal>
+//     </>
+//   );
+// }
 
 
 function PortfolioPost(props) {
@@ -196,24 +196,26 @@ function PortfolioPost(props) {
           bg={'gray.100'}
           mt={-6}
           mx={-6}
-          mb={6}
-          pos={'relative'}>
+          mb={6}>
           <Image className="projectImage"
             src={props.imageSrc}
             fit="cover"
           />
         </Box>
-        <Stack divider={<StackDivider borderColor='gray.200' />}>
+        <Stack
+          divider={<StackDivider borderColor='gray.300' />}
+          justifyContent="space-between"
+        >
           <Box>
             <Heading className="projectName"
               color={useColorModeValue('gray.700', 'white')}
               fontSize={'2xl'}
               fontFamily={'body'}
-              paddingTop={10}
-              _groupHover={{ textDecoration: "underline" }}>
+              pt={9}
+              pb={2}>
               {props.name}
             </Heading>
-            <Text color={'gray.500'}>
+            <Text color={'gray.500'} h='261px'>
               {props.description}
             </Text>
           </Box>
@@ -224,7 +226,7 @@ function PortfolioPost(props) {
           </Box>
         </Stack>
       </Box>
-    </Center>
+    </Center >
   );
 }
 
