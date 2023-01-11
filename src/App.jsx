@@ -117,19 +117,18 @@ function FeaturedProjects(props) {
       <Center>
         <Text fontSize='4xl'>{props.header}</Text>
       </Center>
-      {data.projects.map((props) => {
+      {data.projects.map((props, index) => {
         return (
-          <Center>
-
+          <Center key={index}>
             <Box>
-              <Carousel autoPlay={true} infiniteLoop={true} stopOnHover={true} interval={6000} emulateTouch={true}>
+              <Carousel autoPlay={true} infiniteLoop={true} stopOnHover={true} interval={6000} emulateTouch={true} showThumbs={false}>
                 <Box backgroundImage={props.Image} h={["200px", "300px", "500px", "700px"]} backgroundSize="cover" backgroundPosition="center" onClick={() => window.open(props.Link)} _hover={{ transition: "0.2s", cursor: "pointer" }} />
                 <Box backgroundImage={props.Image2} h={["200px", "300px", "500px", "700px"]} backgroundSize="cover" backgroundPosition="center" onClick={() => window.open(props.Link)} _hover={{ transition: "0.2s", cursor: "pointer" }} />
                 <Box backgroundImage={props.Image3} h={["200px", "300px", "500px", "700px"]} backgroundSize="cover" backgroundPosition="center" onClick={() => window.open(props.Link)} _hover={{ transition: "0.2s", cursor: "pointer" }} />
 
               </Carousel >
               <Box>
-                <Stack padding={[5, 0]} marginTop={-6} justifyContent="space-between" alignItems="left" divider={<StackDivider borderColor='gray.300' />}>
+                <Stack padding={[5, 0]} justifyContent="space-between" alignItems="left" divider={<StackDivider borderColor='gray.300' />}>
                   <Text h="80%" textAlign="left" textColor="black" overflow="hidden">{props.Description}</Text>
                   <Text fontWeight="bold" textAlign="left" textColor="black">{props.Type}</Text>
                 </Stack>
@@ -143,7 +142,6 @@ function FeaturedProjects(props) {
 }
 
 function Projects(props) {
-  var data = props.data;
   return (
     <Box paddingLeft={[0, 0, 10]} paddingRight={[0, 0, 10]}>
       <Center>
@@ -152,25 +150,31 @@ function Projects(props) {
         </Flex>
       </Center>
       <Wrap paddingLeft={[0, 10]} paddingRight={[0, 10]} paddingBottom={20} justify="center">
-        {data.projects.map(PostComponent)}
+        {props.data.projects.map((project, index) => <PostComponent
+          header={project.Name}
+          imageSrc={project.Image}
+          name={project.Name}
+          description={project.Description}
+          type={project.Type}
+          link={project.Link}
+          key={index} />)}
       </Wrap>
     </Box>
   );
 }
 
-function PostComponent(props) {
+function PostComponent({ header, imageSrc, name, description, type, link }) {
   const { isOpen, onToggle } = useDisclosure()
-
   return (
     <WrapItem onLoad={onToggle}>
       <ScaleFade in={isOpen} offsetY='20px'>
         <PortfolioPost
-          header={props.header}
-          imageSrc={props.Image}
-          name={props.Name}
-          description={props.Description}
-          type={props.Type}
-          link={props.Link} />
+          header={header}
+          imageSrc={imageSrc}
+          name={name}
+          description={description}
+          type={type}
+          link={link} />
       </ScaleFade>
     </WrapItem>);
 }
@@ -196,6 +200,7 @@ function PortfolioPost(props) {
   const onCardClick = function () {
     window.open(props.link);
   }
+
   return (
     <Center p={1}>
       <Box
