@@ -1,9 +1,9 @@
 {
     "projects": [
         {
-            "Image": "/images/holmganglarge.png",
-            "Image2": "/images/holmganglarge2.png",
-            "Image3": "/images/holmganglarge3.png",
+            "Image": "images/holmganglarge.png",
+            "Image2": "images/holmganglarge2.png",
+            "Image3": "images/holmganglarge.png",
             "Name": "Holmgang",
             "Description": "Holmgang is a couch multiplayer game for up to four friends. Players fight as vikings in a battle to impress the nordic gods. As the game progressses, players are bestowed gifts that make them stronger, allowing for varied and intense battles. The game prototype won 2nd place at LiU Game Conference 2022.",
             "Type": "Unity, C#, Blender, Cubase",

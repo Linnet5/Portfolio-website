@@ -91,7 +91,7 @@ function Introduction() {
           alignItems="flex-start"
         >
           <Box paddingTop={0} />
-          <Image borderRadius='full' src="/images/portrait.jpg" alt='Linus port' />
+          <Image borderRadius='full' src="images/portrait.jpg" alt='Linus port' />
         </VStack>
       </Flex>
       <Center>
